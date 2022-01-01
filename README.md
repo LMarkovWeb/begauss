@@ -1,4 +1,22 @@
-# Генератор примеров по математике
+# begauss - генератор примеров по математике
+
+## Project setup
+
+```
+npm install
+```
+
+### Compiles and hot-reloads for development
+
+```
+npm run serve
+```
+
+### Compiles and minifies for production
+
+```
+npm run build
+```
 
 Генератор арифметических примеров с разным уровнем сложности и интерактивными ответами.
 
