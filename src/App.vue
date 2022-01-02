@@ -1,19 +1,37 @@
 <template>
-  <div class="page-header">
-    <h1>{{ title }}</h1>
-  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <h1>{{ title }}</h1>
+      </div>
+    </div>
 
-  <p class="lead" v-html="lead"></p>
-  <div id="accordion">
-    <h2>Легкий</h2>
-    <!-- Умножение -->
-    <Summation level="easy" />
-    <!-- Вычитание -->
-    <Subtraction level="easy" />
-    <!-- Multiplication -->
-    <Multiplication level="easy" />
-    <!-- Деление -->
-    <Division level="easy" />
+    <p class="lead" v-html="lead"></p>
+
+    <div class="accordion" id="accordionExample">
+      <h2>Легкий</h2>
+      <!-- Умножение -->
+      <Summation level="easy" />
+      <!-- Вычитание -->
+      <Subtraction level="easy" />
+      <!-- Multiplication -->
+      <Multiplication level="easy" />
+      <!-- Деление -->
+      <Division level="easy" />
+      <hr />
+      <h2>Средний</h2>
+    </div>
+
+    <footer class="pt-4 my-md-5 pt-md-5 border-top">
+      <div class="row">
+        <div class="col-12 col-md">
+          2021,
+          <a href="https://lmarkovweb.github.io/" target="_blank"
+            >lmarkovweb.github.io</a
+          >
+        </div>
+      </div>
+    </footer>
   </div>
 </template>
 

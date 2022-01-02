@@ -1,29 +1,24 @@
 <template>
-  <h3>Сложение</h3>
-  <div class="card">
-    <div class="card-header" id="headingOne33">
-      <h5 class="mb-0">
-        <button
-          class="btn btn-link"
-          data-toggle="collapse"
-          data-target="#collapseOne33"
-          aria-expanded="false"
-          aria-controls="collapseOne33"
-        >
-          Сложение (XX + XX)
-        </button>
-      </h5>
-    </div>
-
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingSummation">
+      <button
+        class="accordion-button"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#collapseSummation"
+        aria-expanded="true"
+        aria-controls="collapseSummation"
+      >
+        Сложение (XX + XX)
+      </button>
+    </h2>
     <div
-      id="collapseOne33"
-      class="collapse"
-      aria-labelledby="headingOne33"
-      data-parent="#accordion"
+      id="collapseSummation"
+      class="accordion-collapse collapse"
+      aria-labelledby="headingSummation"
+      data-bs-parent="#accordionExample"
     >
-      <div class="card-body">
-        <div class="tasks"></div>
-      </div>
+      <div class="accordion-body">Сложение</div>
     </div>
   </div>
 </template>
