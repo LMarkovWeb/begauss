@@ -1,41 +1,21 @@
 <template>
-  <div class="accordion-item">
-    <h2 class="accordion-header" id="headingSummation">
-      <button
-        class="accordion-button"
-        type="button"
-        data-bs-toggle="collapse"
-        data-bs-target="#collapseSummation"
-        aria-expanded="true"
-        aria-controls="collapseSummation"
-      >
-        Сложение (XX + XX)
-      </button>
-    </h2>
-    <div
-      id="collapseSummation"
-      class="accordion-collapse collapse"
-      aria-labelledby="headingSummation"
-      data-bs-parent="#accordionExample"
+  <div class="py-5 px-5 border rounded-lg border-indigo-300 mb-4">
+    <h3
+      class="tracking-widest text-md title-font font-medium text-gray-400 mb-4"
     >
-      <div class="accordion-body">
-        <p v-for="(val, key) in arResult" :key="key">
+      Сложение (XX + XX)
+    </h3>
+    <p v-for="(val, key) in arResult" :key="key" class="text-xl">
+      {{ val.data.a }} + {{ val.data.b }} =
 
-          {{ val.data.a }} + {{ val.data.b }} =
-
-          <span @click="changeVisible(key)">
-            _
-            <strong :class="arResult[key].resShow ? 'show' : 'hide'">
-              {{ val.data.res }}
-            </strong>
-            _
-          </span> 
-
-          <hr />
-        </p>
-       
-      </div>
-    </div>
+      <span @click="changeVisible(key)">
+        _
+        <strong :class="arResult[key].resShow ? 'show' : 'hide'">
+          {{ val.data.res }}
+        </strong>
+        _
+      </span>
+    </p>
   </div>
 </template>
 
@@ -57,11 +37,10 @@ export default {
     //   return Math.random() * (max - min) + min;
     // },
   },
-  watch: {
-  },
+  watch: {},
   methods: {
     changeVisible(key) {
-        this.arResult[key].resShow = true;
+      this.arResult[key].resShow = true;
     },
     getData() {
       for (var i = 0; i < 9; i++) {
@@ -80,7 +59,7 @@ export default {
             a: a,
             b: b,
             res: a + b,
-          }
+          },
         });
       }
     },
@@ -88,17 +67,4 @@ export default {
 };
 </script>
 
-<style scoped>
-  .res {
-    cursor: help;
-  }
-  hr {
-    color:#aaa;
-  }
-  .show {
-    display:inline-block;
-  }
-  .hide {
-    display:none;
-  }
-</style>
+<style scoped></style>
