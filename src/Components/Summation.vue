@@ -18,19 +18,69 @@
       aria-labelledby="headingSummation"
       data-bs-parent="#accordionExample"
     >
-      <div class="accordion-body">Сложение</div>
+      <div class="accordion-body">
+        <p v-for="val in arrRes" :key="val">
+          {{ val.a }} + {{ val.b }} =
+          <span class="res" @click='resShow = !resShow'>
+            _<strong v-if="resShow" v-on:click="resShow = true">{{ val.res }}</strong
+            >_</span
+          > 
+          <hr />
+        </p>
+       
+      </div>
     </div>
   </div>
 </template>
 
 <script>
 export default {
+  name: "Summation",
   props: ["level"],
   data() {
-    return {};
+    return {
+      arrRes: [],
+      resShow: false
+    };
   },
-  methods: {},
+  mounted() {
+    this.getData();
+  },
+  methods: {
+    // getRandomArbitrary(min, max) {
+    //   console.log("getRandomArbitrary");
+    //   return Math.random() * (max - min) + min;
+    // },
+    getData() {
+      for (var i = 0; i < 9; i++) {
+        let minA = Math.ceil(10);
+        let maxA = Math.floor(99);
+
+        let minB = Math.ceil(11);
+        let maxB = Math.floor(99);
+
+        let a = Math.floor(Math.random() * (maxA - minA)) + minA;
+        let b = Math.floor(Math.random() * (maxB - minB)) + minB;
+
+        this.arrRes.push({
+          a: a,
+          b: b,
+          res: a + b,
+        });
+      }
+    },
+  },
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+.res {
+  cursor: help;
+}
+.res strong {
+  
+}
+hr {
+  color:#aaa;
+}
+</style>
