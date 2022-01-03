@@ -19,12 +19,18 @@
       data-bs-parent="#accordionExample"
     >
       <div class="accordion-body">
-        <p v-for="val in arrRes" :key="val">
-          {{ val.a }} + {{ val.b }} =
-          <span class="res" @click='resShow = !resShow'>
-            _<strong v-if="resShow" v-on:click="resShow = true">{{ val.res }}</strong
-            >_</span
-          > 
+        <p v-for="(val, key) in arResult" :key="key">
+
+          {{ val.data.a }} + {{ val.data.b }} =
+
+          <span @click="changeVisible(key)">
+            _
+            <strong :class="arResult[key].resShow ? 'show' : 'hide'">
+              {{ val.data.res }}
+            </strong>
+            _
+          </span> 
+
           <hr />
         </p>
        
@@ -39,18 +45,24 @@ export default {
   props: ["level"],
   data() {
     return {
-      arrRes: [],
-      resShow: false
+      arResult: [],
     };
   },
   mounted() {
     this.getData();
   },
-  methods: {
+  computed: {
     // getRandomArbitrary(min, max) {
     //   console.log("getRandomArbitrary");
     //   return Math.random() * (max - min) + min;
     // },
+  },
+  watch: {
+  },
+  methods: {
+    changeVisible(key) {
+        this.arResult[key].resShow = true;
+    },
     getData() {
       for (var i = 0; i < 9; i++) {
         let minA = Math.ceil(10);
@@ -62,10 +74,13 @@ export default {
         let a = Math.floor(Math.random() * (maxA - minA)) + minA;
         let b = Math.floor(Math.random() * (maxB - minB)) + minB;
 
-        this.arrRes.push({
-          a: a,
-          b: b,
-          res: a + b,
+        this.arResult.push({
+          resShow: false,
+          data: {
+            a: a,
+            b: b,
+            res: a + b,
+          }
         });
       }
     },
@@ -74,13 +89,16 @@ export default {
 </script>
 
 <style scoped>
-.res {
-  cursor: help;
-}
-.res strong {
-  
-}
-hr {
-  color:#aaa;
-}
+  .res {
+    cursor: help;
+  }
+  hr {
+    color:#aaa;
+  }
+  .show {
+    display:inline-block;
+  }
+  .hide {
+    display:none;
+  }
 </style>

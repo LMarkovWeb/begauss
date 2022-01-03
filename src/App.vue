@@ -10,16 +10,30 @@
 
     <div class="accordion" id="accordionExample">
       <h2>Легкий</h2>
-      <!-- Умножение -->
+      <!-- Сложение -->
       <Summation level="easy" />
       <!-- Вычитание -->
       <Subtraction level="easy" />
-      <!-- Multiplication -->
+      <!-- Умножение -->
       <Multiplication level="easy" />
       <!-- Деление -->
       <Division level="easy" />
       <hr />
+
       <h2>Средний</h2>
+      <!-- Сложение -->
+      <Summation level="easy" />
+      <hr />
+
+      <h2>Сложный</h2>
+      <!-- Сложение -->
+      <Summation level="easy" />
+      <hr />
+
+      <h2>Супер сложный</h2>
+      <!-- Сложение -->
+      <Summation level="easy" />
+      <hr />
     </div>
 
     <footer class="pt-4 my-md-5 pt-md-5 border-top">
