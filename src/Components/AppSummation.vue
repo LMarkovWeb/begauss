@@ -21,7 +21,7 @@
 
 <script>
 export default {
-  name: "Summation",
+  name: "AppSummation",
   props: ["level"],
   data() {
     return {

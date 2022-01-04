@@ -1,18 +1,6 @@
 <template>
   <div class="container mx-auto px-4">
-    <header class="text-gray-600 body-font">
-      <div class="flex m-10">
-        <div class="title-font font-medium text-gray-900 mb-4 ml-3 text-5xl">
-          begauss.ru
-        </div>
-        <div
-          class="text-lg md:mr-auto md:ml-4 md:py-1 md:pl-4 flex flex-wrap items-center"
-        >
-          — {{ title }}
-        </div>
-      </div>
-    </header>
-
+    <app-header />
     <section class="text-gray-600 body-font">
       <div class="container px-5 py-15 mx-auto flex flex-wrap">
         <!-- Легкий -->
@@ -50,13 +38,14 @@
                 Легкий
               </h2>
               <div class="leading-relaxed">
-                <Summation level="easy" />
+                <!-- Сложение -->
+                <!-- <AppSummation level="easy" /> -->
                 <!-- Вычитание -->
-                <Subtraction level="easy" />
+                <!-- <AppSubtraction level="easy" /> -->
                 <!-- Умножение -->
-                <Multiplication level="easy" />
+                <!-- <AppMultiplication level="easy" /> -->
                 <!-- Деление -->
-                <Division level="easy" />
+                <!-- <AppDivision level="easy" /> -->
               </div>
             </div>
           </div>
@@ -95,7 +84,16 @@
               <h2 class="font-medium title-font text-gray-900 mb-1 text-xl">
                 Средний
               </h2>
-              <div class="leading-relaxed"><Summation level="easy" /></div>
+              <div class="leading-relaxed">
+                <!-- Сложение -->
+                <!-- <AppSummation level="middle" /> -->
+                <!-- Вычитание -->
+                <!-- <AppSubtraction level="middle" /> -->
+                <!-- Умножение -->
+                <!-- <AppMultiplication level="middle" /> -->
+                <!-- Деление -->
+                <!-- <AppDivision level="middle" /> -->
+              </div>
             </div>
           </div>
         </div>
@@ -134,7 +132,16 @@
               <h2 class="font-medium title-font text-gray-900 mb-1 text-xl">
                 Сложный
               </h2>
-              <div class="leading-relaxed"><Summation level="easy" /></div>
+              <div class="leading-relaxed">
+                <!-- Сложение -->
+                <!-- <AppSummation level="hard" /> -->
+                <!-- Вычитание -->
+                <!-- <AppSubtraction level="hard" /> -->
+                <!-- Умножение -->
+                <!-- <AppMultiplication level="hard" /> -->
+                <!-- Деление -->
+                <!-- <AppDivision level="hard" /> -->
+              </div>
             </div>
           </div>
         </div>
@@ -173,65 +180,44 @@
               <h2 class="font-medium title-font text-gray-900 mb-1 text-xl">
                 Супер сложный
               </h2>
-              <div class="leading-relaxed"><Summation level="easy" /></div>
+              <div class="leading-relaxed">
+                <!-- Сложение -->
+                <!-- <AppSummation level="extrahard" /> -->
+                <!-- Вычитание -->
+                <!-- <AppSubtraction level="extrahard" /> -->
+                <!-- Умножение -->
+                <!-- <AppMultiplication level="extrahard" /> -->
+                <!-- Деление -->
+                <!-- <AppDivision level="extrahard" /> -->
+              </div>
             </div>
           </div>
         </div>
       </div>
     </section>
-
-    <!-- intro -->
-    <section id="intro" class="text-gray-600 body-font">
-      <div class="container px-5 py-20 mx-auto">
-        <div class="xl:w-3/4 lg:w-3/4 w-full mx-auto text-center">
-          <p v-html="lead" class="leading-relaxed text-lg"></p>
-          <span
-            class="inline-block h-1 w-10 rounded bg-indigo-500 mt-8 mb-6"
-          ></span>
-        </div>
-      </div>
-    </section>
-
-    <footer class="text-gray-600 body-font">
-      <div
-        class="container px-5 py-8 mx-auto flex items-center sm:flex-row flex-col"
-      >
-        <a
-          class="flex title-font font-medium items-center md:justify-start justify-center text-gray-900"
-        >
-          <span class="ml-3 text-xl">begauss.ru</span>
-        </a>
-        <p
-          class="text-sm text-gray-500 sm:ml-4 sm:pl-4 sm:border-l-2 sm:border-gray-200 sm:py-2 sm:mt-0 mt-4"
-        ></p>
-        {{ new Date().getFullYear() }}
-        <span
-          class="inline-flex sm:ml-auto sm:mt-0 mt-4 justify-center sm:justify-start"
-        >
-          <a
-            href="https://github.com/LMarkovWeb"
-            class="text-gray-600 ml-1"
-            target="_blank"
-            >GitHub</a
-          >
-        </span>
-      </div>
-    </footer>
+    <app-intro />
+    <app-footer />
   </div>
 </template>
 
 <script>
-import Summation from "./Components/Summation";
-import Division from "./Components/Division";
-import Subtraction from "./Components/Subtraction";
-import Multiplication from "./Components/Multiplication";
+import AppHeader from "./Components/AppHeader";
+import AppIntro from "./Components/AppIntro.vue";
+import AppFooter from "./Components/AppFooter.vue";
+import AppSummation from "@/Components/AppSummation";
+import AppDivision from "@/Components/AppDivision";
+import AppSubtraction from "@/Components/AppSubtraction";
+import AppMultiplication from "@/Components/AppMultiplication";
 
 export default {
   components: {
-    Summation,
-    Division,
-    Subtraction,
-    Multiplication,
+    AppHeader,
+    AppSummation,
+    AppDivision,
+    AppSubtraction,
+    AppMultiplication,
+    AppIntro,
+    AppFooter,
   },
   data: () => ({
     title: "Генератор примеров по арифметике",
