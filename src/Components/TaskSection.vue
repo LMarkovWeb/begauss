@@ -1,7 +1,7 @@
 <template>
   <section class="text-gray-600 body-font">
     <div
-      v-for="(item, key) in arData"
+      v-for="(itemLevel, key) in arLevels"
       :key="key"
       class="container px-5 py-15 mx-auto flex flex-wrap"
     >
@@ -20,12 +20,12 @@
           class="flex-grow md:pl-8 pl-6 flex sm:items-center items-start flex-col sm:flex-row"
         >
           <div
-            v-html="item.svg"
+            v-html="arView[key].svg"
             class="flex-shrink-0 w-24 h-24 bg-indigo-100 text-indigo-500 rounded-full inline-flex items-center justify-center"
           ></div>
           <div class="flex-grow sm:pl-6 mt-6 sm:mt-0">
             <h2 class="font-medium title-font text-gray-900 mb-1 text-xl">
-              {{ item.levelTitle }}
+              {{ itemLevel.title }}
             </h2>
             <div class="leading-relaxed">
               <!-- Сложение -->
@@ -56,30 +56,29 @@ export default {
     AppSubtraction,
     AppMultiplication,
   },
-  data: () => ({
-    arData: [
-      {
-        levelTitle: "Легкий",
-        level: "easy",
-        svg: "<svg  fill='none'  stroke='currentColor'  stroke-linecap='round'  stroke-linejoin='round'  stroke-width='2'  class='w-12 h-12'  viewBox='0 0 24 24'>  <path d='M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z'></path></svg>",
-      },
-      {
-        levelTitle: "Средний",
-        level: "middle",
-        svg: "<svg fill='none' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round'              stroke-width='2' class='w-12 h-12' viewBox='0 0 24 24'><path d='M22 12h-4l-3 9L9 3l-3 9H2'></path></svg>",
-      },
-      {
-        levelTitle: "Сложный",
-        level: "hard",
-        svg: "<svg fill='none' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round'             stroke-width='2' class='w-12 h-12' viewBox='0 0 24 24'><circle cx='12' cy='5' r='3'></circle><path d='M12 22V8M5 12H2a10 10 0 0020 0h-3'></path></svg>",
-      },
-      {
-        levelTitle: "Супер сложный ",
-        level: "extraHard",
-        svg: "<svg fill='none' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' class='w-12 h-12' viewBox='0 0 24 24'><path d='M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2'></path><circle cx='12' cy='7' r='4'></circle></svg>",
-      },
-    ],
-  }),
+  props: {
+    levelsConfig: Array,
+  },
+
+  data() {
+    return {
+      arView: [
+        {
+          svg: "<svg  fill='none'  stroke='currentColor'  stroke-linecap='round'  stroke-linejoin='round'  stroke-width='2'  class='w-12 h-12'  viewBox='0 0 24 24'>  <path d='M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z'></path></svg>",
+        },
+        {
+          svg: "<svg fill='none' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round'              stroke-width='2' class='w-12 h-12' viewBox='0 0 24 24'><path d='M22 12h-4l-3 9L9 3l-3 9H2'></path></svg>",
+        },
+        {
+          svg: "<svg fill='none' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round'             stroke-width='2' class='w-12 h-12' viewBox='0 0 24 24'><circle cx='12' cy='5' r='3'></circle><path d='M12 22V8M5 12H2a10 10 0 0020 0h-3'></path></svg>",
+        },
+        {
+          svg: "<svg fill='none' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' class='w-12 h-12' viewBox='0 0 24 24'><path d='M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2'></path><circle cx='12' cy='7' r='4'></circle></svg>",
+        },
+      ],
+      arLevels: this.levelsConfig,
+    };
+  },
   methods: {},
 };
 </script>
