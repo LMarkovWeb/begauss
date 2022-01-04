@@ -14,7 +14,11 @@
 </template>
 
 <script>
-export default {};
+export default {
+  props: {
+    title:String
+  }
+};
 </script>
 
 <style scoped></style>

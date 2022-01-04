@@ -26,38 +26,47 @@ export default {
   data() {
     return {
       arResult: [],
+      level: this.level,
+      taskCount: 10,
     };
   },
   mounted() {
     this.getData();
   },
-  computed: {
-    // getRandomArbitrary(min, max) {
-    //   console.log("getRandomArbitrary");
-    //   return Math.random() * (max - min) + min;
-    // },
-  },
+  computed: {},
   watch: {},
   methods: {
     changeVisible(key) {
       this.arResult[key].resShow = true;
     },
+    getRandomArbitrary(min, max) {
+      return Math.floor(Math.random() * (max - min)) + min;
+    },
     getData() {
-      for (var i = 0; i < 9; i++) {
-        let minA = Math.ceil(10);
-        let maxA = Math.floor(99);
+      // switch (level) {
+      //   case "easy":
+      //     console.log("easy");
+      //     break;
+      //   case "middle":
+      //     break;
+      //   default:
+      //     break;
+      // }
+      const minA = Math.ceil(10);
+      const maxA = Math.floor(99);
+      const minB = Math.ceil(11);
+      const maxB = Math.floor(99);
 
-        let minB = Math.ceil(11);
-        let maxB = Math.floor(99);
-
-        let a = Math.floor(Math.random() * (maxA - minA)) + minA;
-        let b = Math.floor(Math.random() * (maxB - minB)) + minB;
+      for (var i = 0; i < this.taskCount; i++) {
+        // создание случайных чисел в заданном диапазоне
+        let a = this.getRandomArbitrary(minA, maxA);
+        let b = this.getRandomArbitrary(minB, maxB);
 
         this.arResult.push({
           resShow: false,
           data: {
-            a: a,
-            b: b,
+            a,
+            b,
             res: a + b,
           },
         });

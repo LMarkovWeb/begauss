@@ -25,6 +25,8 @@ export default {
   data() {
     return {
       arResult: [],
+      level: this.level,
+      taskCount: 10,
     };
   },
   mounted() {
@@ -36,24 +38,27 @@ export default {
     changeVisible(key) {
       this.arResult[key].resShow = true;
     },
+    getRandomArbitrary(min, max) {
+      return Math.floor(Math.random() * (max - min)) + min;
+    },
     getData() {
-      for (var i = 0; i < 10; i++) {
-        let minA = Math.ceil(2);
-        let maxA = Math.floor(9);
+      const minA = Math.ceil(2);
+      const maxA = Math.floor(9);
+      const minB = Math.ceil(2);
+      const maxB = Math.floor(9);
 
-        let minB = Math.ceil(2);
-        let maxB = Math.floor(9);
-
-        let a = Math.floor(Math.random() * (maxA - minA)) + minA;
-        let b = Math.floor(Math.random() * (maxB - minB)) + minB;
+      for (var i = 0; i < this.taskCount; i++) {
+        // создание случайных чисел в заданном диапазоне
+        let a = this.getRandomArbitrary(minA, maxA);
+        let b = this.getRandomArbitrary(minB, maxB);
 
         let res = a * b;
 
         this.arResult.push({
           resShow: false,
           data: {
-            a: a,
-            b: b,
+            a,
+            b,
             res,
           },
         });
