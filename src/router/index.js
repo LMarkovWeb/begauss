@@ -1,6 +1,6 @@
 import { createRouter, createWebHistory } from "vue-router";
 import About from "@/views/About.vue";
-import AllTasks from "@/views/AllTasks.vue";
+import TaskSection from "@/Components/TaskSection.vue";
 // import Easy from "@/views/Easy.vue";
 // import Middle from "@/views/Middle.vue";
 // import Hard from "@/views/Hard.vue";
@@ -10,7 +10,7 @@ const routes = [
   {
     path: "/",
     name: "Home",
-    component: AllTasks,
+    component: TaskSection,
     props: true,
   },
   {

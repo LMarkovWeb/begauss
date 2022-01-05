@@ -1,15 +1,9 @@
 <template>
-  <div>
-    <task-section :levelsConfig="levelsConfig" />
-  </div>
+  <div></div>
 </template>
 
 <script>
-import TaskSection from "@/Components/TaskSection.vue";
-export default {
-  components: { TaskSection },
-  props: ["levelsConfig"],
-};
+export default {};
 </script>
 
 <style scoped></style>
