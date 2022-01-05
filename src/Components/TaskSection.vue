@@ -1,7 +1,7 @@
 <template>
   <section class="text-gray-600 body-font">
     <div
-      v-for="(itemLevel, key) in arLevels"
+      v-for="(level, key) in levelsConfig"
       :key="key"
       class="container px-5 py-15 mx-auto flex flex-wrap"
     >
@@ -25,17 +25,24 @@
           ></div>
           <div class="flex-grow sm:pl-6 mt-6 sm:mt-0">
             <h2 class="font-medium title-font text-gray-900 mb-1 text-xl">
-              {{ itemLevel.title }}
+              {{ level.title }}
             </h2>
             <div class="leading-relaxed">
               <!-- Сложение -->
-              <AppSummation level="easy"></AppSummation>
+              <AppSummation :arParams="level.AppSummation" />
+              <AppSummation
+                v-show="level.AppSummationPlus"
+                :arParams="level.AppSummationPlus ? level.AppSummationPlus : 0"
+              />
+
               <!-- Вычитание -->
-              <AppSubtraction level="easy"></AppSubtraction>
+              <AppSubtraction :arParams="level.AppSubtraction"></AppSubtraction>
               <!-- Умножение -->
-              <AppMultiplication level="easy"></AppMultiplication>
+              <AppMultiplication
+                :arParams="level.AppMultiplication"
+              ></AppMultiplication>
               <!-- Деление -->
-              <AppDivision level="easy"></AppDivision>
+              <AppDivision :arParams="level.AppDivision"></AppDivision>
             </div>
           </div>
         </div>
@@ -50,14 +57,12 @@ import AppDivision from "@/Components/Math/AppDivision";
 import AppSubtraction from "@/Components/Math/AppSubtraction";
 import AppMultiplication from "@/Components/Math/AppMultiplication";
 export default {
+  name: "TaskSection",
   components: {
     AppSummation,
     AppDivision,
     AppSubtraction,
     AppMultiplication,
-  },
-  props: {
-    levelsConfig: Array,
   },
 
   data() {
@@ -76,7 +81,7 @@ export default {
           svg: "<svg fill='none' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' class='w-12 h-12' viewBox='0 0 24 24'><path d='M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2'></path><circle cx='12' cy='7' r='4'></circle></svg>",
         },
       ],
-      arLevels: this.levelsConfig,
+      levelsConfig: this.$store.state.levelsConfig,
     };
   },
   methods: {},

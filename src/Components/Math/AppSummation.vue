@@ -3,17 +3,20 @@
     <h3
       class="tracking-widest text-md title-font font-medium text-gray-400 mb-4"
     >
-      Сложение (XX + XX)
+      {{ title }}
     </h3>
     <p v-for="(val, key) in arResult" :key="key" class="text-xl">
-      {{ val.data.a }} + {{ val.data.b }} =
+      <span v-for="(v, k) in val.data.operands" :key="k">
+        {{ v }}
+        <span v-if="k < val.data.operands.length - 1"> + </span>
+      </span>
+      =
 
-      <span @click="changeVisible(key)">
+      <span @click="changeVisible(key)" class="res">
         _
         <strong :class="arResult[key].resShow ? 'show' : 'hide'">
           {{ val.data.res }}
         </strong>
-        _
       </span>
     </p>
   </div>
@@ -22,52 +25,69 @@
 <script>
 export default {
   name: "AppSummation",
-  props: ["level"],
+  props: {
+    arParams: Object,
+  },
   data() {
     return {
+      // Итоговый массив примеров
       arResult: [],
-      level: this.level,
-      taskCount: 10,
+      // кол-во заданий
+      taskCount: this.arParams.taskCount,
+      // кол-во операндов в математическом выражении
+      operandsCount: this.arParams.operandsCount,
+
+      // Заголовок блока
+      title: this.arParams.title,
     };
   },
   mounted() {
     this.getData();
   },
-  computed: {},
-  watch: {},
+  computed: {
+    // Массив диапазонов для генерации примеров
+    range: function () {
+      let arRes = [];
+      for (let i = 0; i < this.operandsCount; i++) {
+        arRes.push({
+          min: Math.ceil(this.arParams.range[i].from),
+          max: Math.ceil(this.arParams.range[i].to),
+        });
+      }
+      console.log(arRes);
+      return arRes;
+    },
+  },
   methods: {
+    // Показ ответов
     changeVisible(key) {
       this.arResult[key].resShow = true;
     },
+    // генерация случайного числа в диапазоне
     getRandomArbitrary(min, max) {
       return Math.floor(Math.random() * (max - min)) + min;
     },
+    //
     getData() {
-      // switch (level) {
-      //   case "easy":
-      //     console.log("easy");
-      //     break;
-      //   case "middle":
-      //     break;
-      //   default:
-      //     break;
-      // }
-      const minA = Math.ceil(10);
-      const maxA = Math.floor(99);
-      const minB = Math.ceil(11);
-      const maxB = Math.floor(99);
-
       for (var i = 0; i < this.taskCount; i++) {
         // создание случайных чисел в заданном диапазоне
-        let a = this.getRandomArbitrary(minA, maxA);
-        let b = this.getRandomArbitrary(minB, maxB);
+        let arTemp = [];
+        let sum = 0;
+        for (let y = 0; y < this.operandsCount; y++) {
+          // генерация числа из диапазона
+          let operand = this.getRandomArbitrary(
+            this.range[y].min,
+            this.range[y].max
+          );
+          arTemp.push(operand); // сохраняем в массив очередное слагаемое
+          sum += operand; // подсчет суммы
+        }
 
         this.arResult.push({
           resShow: false,
           data: {
-            a,
-            b,
-            res: a + b,
+            operands: arTemp,
+            res: sum,
           },
         });
       }
@@ -75,5 +95,3 @@ export default {
   },
 };
 </script>
-
-<style scoped></style>
