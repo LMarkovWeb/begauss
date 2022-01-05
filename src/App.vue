@@ -1,29 +1,47 @@
 <template>
   <div class="container mx-auto px-4">
-    <app-header :title="title" />
-    <task-section :levelsConfig="levelsConfig" />
-    <app-intro :text="lead" />
+    <router-link :to="{ name: 'Home' }">
+      <app-header :title="title" />
+    </router-link>
+
+    <div id="nav">
+      <router-link
+        class="button"
+        :to="{ name: 'Home', params: { levelsConfig: levelsConfig } }"
+        >Главная </router-link
+      >|
+
+      <router-link :to="{ name: 'About', params: { text: lead } }"
+        >О проекте</router-link
+      >
+
+      <!-- <router-link to="/easy">Легкий</router-link> |
+      <router-link to="/middle">Средний</router-link> |
+      <router-link to="/hard">Сложный</router-link> |
+      <router-link to="/extrahard">Супер сложный</router-link> -->
+    </div>
+
+    <!-- Content -->
+    <router-view :text="lead"></router-view>
+
+    <!-- <task-section :levelsConfig="levelsConfig" /> -->
     <app-footer />
   </div>
 </template>
 
 <script>
-import AppHeader from "./Components/AppHeader";
-import TaskSection from "@/Components/TaskSection.vue";
-import AppIntro from "./Components/AppIntro.vue";
-import AppFooter from "./Components/AppFooter.vue";
+import AppHeader from "@/Components/AppHeader";
+import AppFooter from "@/Components/AppFooter.vue";
 
 export default {
   components: {
     AppHeader,
-    TaskSection,
-    AppIntro,
     AppFooter,
   },
   data: () => ({
     title: "Генератор примеров по арифметике",
     lead: `<p>Генератор арифметических примеров с разным уровнем сложности и
-    интерактивными ответами.</p>
+    интерактивными ответами.</p><hr/><br>
     <p>Одним из математиков с феноменальной скоростью устного счета был знаменитый
     Карл Фридрих Гаусс (1777-1855).</p>
     <p>Если вы обычный человек, а не вундеркинд, то для развития навыка счета в уме
@@ -227,5 +245,8 @@ export default {
 }
 .hide {
   display: none;
+}
+.router-link-active {
+  font-weight: bold;
 }
 </style>
