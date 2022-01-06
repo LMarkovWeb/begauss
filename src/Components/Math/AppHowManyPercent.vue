@@ -1,12 +1,13 @@
 <template>
   <div class="py-5 px-5 border rounded-lg border-indigo-300 mb-4">
-    <h3 v-html="title"
-        class="tracking-widest text-md title-font font-medium text-gray-400 mb-4">
+    <h3
+        class="tracking-widest text-md title-font font-medium text-gray-400 mb-4"
+    >
+      {{ title }}
     </h3>
-    <p class="p-3">($ = {{currencyExchangeRate}} р.)</p>
     <p v-for="(val, key) in arResult" :key="key" class="text-xl">
-      <span>
-        {{ val.data.operands[0] }}&#36;
+      <span v-for="(v, k) in val.data.operands" :key="k">
+        {{ v }}<span v-if="k < val.data.operands.length - 1"> > </span>
       </span>
       =
 
@@ -22,7 +23,7 @@
 
 <script>
 export default {
-  name: "AppConversion",
+  name: "AppHowManyPercent",
   props: {
     arParams: Object,
   },
@@ -34,7 +35,7 @@ export default {
       taskCount: this.arParams.taskCount,
       // кол-во операндов в математическом выражении
       operandsCount: this.arParams.operandsCount,
-      currencyExchangeRate: 75,
+
       // Заголовок блока
       title: this.arParams.title,
     };
@@ -67,15 +68,25 @@ export default {
     getData() {
       let requiredQuantity = this.taskCount; // счетчик примеров
       while (requiredQuantity) {
+        // создание случайных чисел в заданном диапазоне
+        // какой процент взять от числа, случайное значение из массива процентов
         let a = this.getRandomArbitrary(this.range[0].min, this.range[0].max);
+        let b = this.getRandomArbitrary(this.range[1].min, this.range[1].max);
 
-        requiredQuantity--;
+        // вычисление процента
+        let res = (a - b) / b * 100;
+
+        if (Number.isInteger(res)) {
+          requiredQuantity--;
+        } else {
+          continue;
+        }
 
         this.arResult.push({
           resShow: false,
           data: {
-            operands: [a, 0],
-            res: a * this.currencyExchangeRate
+            operands: [a, b],
+            res,
           },
         });
       }

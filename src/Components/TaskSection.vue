@@ -31,10 +31,9 @@
               <!-- Сложение -->
               <AppSummation :arParams="level.AppSummation" />
               <AppSummation
-                v-show="level.AppSummationPlus"
+                v-if="level.AppSummationPlus"
                 :arParams="level.AppSummationPlus ? level.AppSummationPlus : {}"
               />
-
               <!-- Вычитание -->
               <AppSubtraction :arParams="level.AppSubtraction"></AppSubtraction>
               <!-- Умножение -->
@@ -43,6 +42,22 @@
               ></AppMultiplication>
               <!-- Деление -->
               <AppDivision :arParams="level.AppDivision"></AppDivision>
+              <!-- Процент от числа -->
+              <AppPercentage
+                v-if="level.AppPercentage"
+                :arParams="level.AppPercentage ? level.AppPercentage : {}"
+              />
+              <!-- На сколько процентов больше -->
+              <AppHowManyPercent
+                  v-if="level.AppHowManyPercent"
+                  :arParams="level.AppHowManyPercent ? level.AppHowManyPercent : {}"
+              />
+              <!-- Перевод из долларов в рубли -->
+              <AppConversion
+                  v-if="level.AppConversion"
+                  :arParams="level.AppConversion ? level.AppConversion : {}"
+              />
+
             </div>
           </div>
         </div>
@@ -56,6 +71,9 @@ import AppSummation from "@/Components/Math/AppSummation";
 import AppDivision from "@/Components/Math/AppDivision";
 import AppSubtraction from "@/Components/Math/AppSubtraction";
 import AppMultiplication from "@/Components/Math/AppMultiplication";
+import AppPercentage from "@/Components/Math/AppPercentage";
+import AppHowManyPercent from "@/Components/Math/AppHowManyPercent";
+import AppConversion from "@/Components/Math/AppConversion";
 export default {
   name: "TaskSection",
   components: {
@@ -63,6 +81,9 @@ export default {
     AppDivision,
     AppSubtraction,
     AppMultiplication,
+    AppPercentage,
+    AppHowManyPercent,
+    AppConversion,
   },
 
   data() {
