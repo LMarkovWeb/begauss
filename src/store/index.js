@@ -85,6 +85,16 @@ export default createStore({
             { from: 2, to: 9 },
           ],
         },
+        AppConversion: {
+          // конвертация $ -> P.
+          title: "Конвертация &#36; -> &#8381;",
+          taskCount: 10,
+          operandsCount: 2,
+          range: [
+            { from: 3, to: 100 },
+            { from: 1, to: 1 },
+          ],
+        },
       },
       // hard
       {
@@ -135,6 +145,24 @@ export default createStore({
           range: [
             { from: 100, to: 999 },
             { from: 2, to: 9 },
+          ],
+        },
+        AppPercentage: {
+          title: "Процент (%) от числа",
+          taskCount: 10,
+          operandsCount: 2,
+          range: [
+            { from: 1, to: 99 },
+            { from: 200, to: 1000 },
+          ],
+        },
+        AppHowManyPercent: {
+          title: "На сколько(%) больше",
+          taskCount: 10,
+          operandsCount: 2,
+          range: [
+            { from: 100, to: 150 },
+            { from: 10, to: 120 },
           ],
         },
       },
