@@ -1,66 +1,43 @@
 <template>
-  <section class="text-gray-600 body-font">
+  <section class="container text-gray-600 body-font">
     <div
       v-for="(level, key) in levelsConfig"
       :key="key"
-      class="container px-5 py-15 mx-auto flex flex-wrap"
+      class="row mb-10"
     >
-      <div class="flex relative pt-10 pb-20 sm:items-center md:w-5/6 mx-auto">
-        <div
-          class="h-full w-6 absolute inset-0 flex items-center justify-center"
-        >
-          <div class="h-full w-1 bg-gray-200 pointer-events-none"></div>
-        </div>
-        <div
-          class="flex-shrink-0 w-6 h-6 rounded-full mt-10 sm:mt-0 inline-flex items-center justify-center bg-indigo-500 text-white relative z-10 title-font font-medium text-sm"
-        >
-          {{ key + 1 }}
-        </div>
-        <div
-          class="flex-grow md:pl-8 pl-6 flex sm:items-center items-start flex-col sm:flex-row"
-        >
-          <div
-            v-html="arView[key].svg"
-            class="flex-shrink-0 w-24 h-24 bg-indigo-100 text-indigo-500 rounded-full inline-flex items-center justify-center"
-          ></div>
-          <div class="flex-grow sm:pl-6 mt-6 sm:mt-0">
-            <h2 class="font-medium title-font text-gray-900 mb-1 text-xl">
-              {{ level.title }}
-            </h2>
-            <div class="leading-relaxed">
-              <!-- Сложение -->
-              <AppSummation :arParams="level.AppSummation" />
-              <AppSummation
-                v-if="level.AppSummationPlus"
-                :arParams="level.AppSummationPlus ? level.AppSummationPlus : {}"
-              />
-              <!-- Вычитание -->
-              <AppSubtraction :arParams="level.AppSubtraction"></AppSubtraction>
-              <!-- Умножение -->
-              <AppMultiplication
-                :arParams="level.AppMultiplication"
-              ></AppMultiplication>
-              <!-- Деление -->
-              <AppDivision :arParams="level.AppDivision"></AppDivision>
-              <!-- Процент от числа -->
-              <AppPercentage
-                v-if="level.AppPercentage"
-                :arParams="level.AppPercentage ? level.AppPercentage : {}"
-              />
-              <!-- На сколько процентов больше -->
-              <AppHowManyPercent
-                  v-if="level.AppHowManyPercent"
-                  :arParams="level.AppHowManyPercent ? level.AppHowManyPercent : {}"
-              />
-              <!-- Перевод из долларов в рубли -->
-              <AppConversion
-                  v-if="level.AppConversion"
-                  :arParams="level.AppConversion ? level.AppConversion : {}"
-              />
-
-            </div>
-          </div>
-        </div>
+      <h2 class="font-medium title-font text-gray-900 mb-1 text-xl">
+        {{ level.title }}
+      </h2>
+      <div class="col">
+        <!-- Сложение -->
+        <AppSummation :arParams="level.AppSummation" />
+        <AppSummation
+          v-if="level.AppSummationPlus"
+          :arParams="level.AppSummationPlus ? level.AppSummationPlus : {}"
+        />
+        <!-- Вычитание -->
+        <AppSubtraction :arParams="level.AppSubtraction"></AppSubtraction>
+        <!-- Умножение -->
+        <AppMultiplication
+          :arParams="level.AppMultiplication"
+        ></AppMultiplication>
+        <!-- Деление -->
+        <AppDivision :arParams="level.AppDivision"></AppDivision>
+        <!-- Процент от числа -->
+        <AppPercentage
+          v-if="level.AppPercentage"
+          :arParams="level.AppPercentage ? level.AppPercentage : {}"
+        />
+        <!-- На сколько процентов больше -->
+        <AppHowManyPercent
+            v-if="level.AppHowManyPercent"
+            :arParams="level.AppHowManyPercent ? level.AppHowManyPercent : {}"
+        />
+        <!-- Перевод из долларов в рубли -->
+        <AppConversion
+            v-if="level.AppConversion"
+            :arParams="level.AppConversion ? level.AppConversion : {}"
+        />
       </div>
     </div>
   </section>

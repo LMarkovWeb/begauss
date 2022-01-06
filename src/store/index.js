@@ -50,12 +50,12 @@ export default createStore({
         title: "Средний",
         level: "middle",
         AppSummation: {
-          title: "Сложение (XXX + XXX)",
+          title: "Сложение (XXX + XX(X))",
           taskCount: 10,
           operandsCount: 2,
           range: [
             { from: 100, to: 999 },
-            { from: 100, to: 999 },
+            { from: 11, to: 300 },
           ],
         },
         AppSubtraction: {
