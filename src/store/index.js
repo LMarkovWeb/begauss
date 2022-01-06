@@ -18,16 +18,16 @@ export default createStore({
           ],
         },
         AppSubtraction: {
-          title: "Вычитание (XX(X) - XX)",
-          taskCount: 10,
+          title: "Вычитание (XX - XX)",
+          taskCount: 15,
           operandsCount: 2,
           range: [
-            { from: 21, to: 129 },
-            { from: 6, to: 99 },
+            { from: 21, to: 99 },
+            { from: 6, to: 60 },
           ],
         },
         AppMultiplication: {
-          title: "",
+          title: "Умножение (Х * Х)",
           taskCount: 10,
           operandsCount: 2,
           range: [
@@ -37,10 +37,10 @@ export default createStore({
         },
         AppDivision: {
           title: "Деление (XX / X)",
-          taskCount: 10,
-          operandsCount: 30, // без учета проверок на целочисленное деление
+          taskCount: 20,
+          operandsCount: 2, // без учета проверок на целочисленное деление
           range: [
-            { from: 21, to: 199 },
+            { from: 21, to: 99 },
             { from: 2, to: 9 },
           ],
         },
@@ -59,12 +59,12 @@ export default createStore({
           ],
         },
         AppSubtraction: {
-          title: "Вычитание (XXX - XXX)",
+          title: "Вычитание (XX(X) - XX)",
           taskCount: 10,
           operandsCount: 2,
           range: [
-            { from: 700, to: 999 },
-            { from: 100, to: 699 },
+            { from: 81, to: 199 },
+            { from: 11, to: 99 },
           ],
         },
         AppMultiplication: {
@@ -72,16 +72,16 @@ export default createStore({
           taskCount: 10,
           operandsCount: 2,
           range: [
-            { from: 11, to: 99 },
+            { from: 11, to: 39 },
             { from: 2, to: 9 },
           ],
         },
         AppDivision: {
-          title: "",
+          title: "Деление (XX(X) / X)",
           taskCount: 10,
-          operandsCount: 30,
+          operandsCount: 2,
           range: [
-            { from: 21, to: 199 },
+            { from: 80, to: 199 },
             { from: 2, to: 9 },
           ],
         },
@@ -111,7 +111,7 @@ export default createStore({
           ],
         },
         AppSubtraction: {
-          title: "",
+          title: "Вычитание (XXX - XXX)",
           taskCount: 10,
           operandsCount: 2,
           range: [
@@ -120,7 +120,7 @@ export default createStore({
           ],
         },
         AppMultiplication: {
-          title: "",
+          title: "Умножение (ХХ * Х)",
           taskCount: 10,
           operandsCount: 2,
           range: [
@@ -129,11 +129,11 @@ export default createStore({
           ],
         },
         AppDivision: {
-          title: "",
+          title: "Деление (XXX / X)",
           taskCount: 10,
-          operandsCount: 30,
+          operandsCount: 2,
           range: [
-            { from: 21, to: 199 },
+            { from: 100, to: 999 },
             { from: 2, to: 9 },
           ],
         },
@@ -155,30 +155,30 @@ export default createStore({
           ],
         },
         AppSubtraction: {
-          title: "В разработке...",
+          title: "Вычитание (XXX(X) - XXX)",
           taskCount: 10,
           operandsCount: 2,
           range: [
-            { from: 700, to: 999 },
-            { from: 100, to: 699 },
+            { from: 700, to: 9999 },
+            { from: 101, to: 999 },
           ],
         },
         AppMultiplication: {
-          title: "Умножение (ХХХ * ХХ)",
+          title: "Умножение (ХХ(Х) * ХХ)",
           taskCount: 10,
           operandsCount: 2,
           range: [
-            { from: 101, to: 999 },
+            { from: 51, to: 999 },
             { from: 11, to: 99 },
           ],
         },
         AppDivision: {
-          title: "В разработке...",
+          title: "Деление (XXX / XX)",
           taskCount: 10,
-          operandsCount: 30,
+          operandsCount: 2,
           range: [
-            { from: 21, to: 199 },
-            { from: 2, to: 9 },
+            { from: 100, to: 999 },
+            { from: 11, to: 99 },
           ],
         },
       },

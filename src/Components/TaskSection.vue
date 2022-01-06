@@ -32,7 +32,7 @@
               <AppSummation :arParams="level.AppSummation" />
               <AppSummation
                 v-show="level.AppSummationPlus"
-                :arParams="level.AppSummationPlus ? level.AppSummationPlus : 0"
+                :arParams="level.AppSummationPlus ? level.AppSummationPlus : {}"
               />
 
               <!-- Вычитание -->

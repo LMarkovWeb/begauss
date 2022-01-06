@@ -54,7 +54,7 @@ export default {
           max: Math.ceil(this.arParams.range[i].to),
         });
       }
-      console.log(arRes);
+      //console.log(arRes);
       return arRes;
     },
   },
@@ -69,10 +69,10 @@ export default {
     },
     //
     getData() {
-      for (var i = 0; i < this.taskCount; i++) {
+      for (let i = 0; i < this.taskCount; i++) {
         // создание случайных чисел в заданном диапазоне
         let arTemp = [];
-        let sum = 0;
+        let res = 0;
         for (let y = 0; y < this.operandsCount; y++) {
           // генерация числа из диапазона
           let operand = this.getRandomArbitrary(
@@ -80,14 +80,14 @@ export default {
             this.range[y].max
           );
           arTemp.push(operand); // сохраняем в массив очередное слагаемое
-          sum += operand; // подсчет суммы
+          res += operand; // подсчет суммы
         }
 
         this.arResult.push({
           resShow: false,
           data: {
             operands: arTemp,
-            res: sum,
+            res,
           },
         });
       }
