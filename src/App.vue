@@ -4,18 +4,56 @@
     <app-header :title="title" />
 
     <!-- Nav -->
-    <div id="nav">
-      <router-link class="button" :to="{ name: 'Home' }">Главная </router-link>|
-
-      <router-link :to="{ name: 'About', params: { text: lead } }"
-        >О проекте</router-link
+    <nav class="inline-flex mb-10" role="group">
+      <button
+          type="button"
+          class="
+      rounded-l
+      px-6
+      py-2
+      m-1
+      border-2 border-blue-600
+      text-blue-600
+      font-medium
+      text-xs
+      leading-tight
+      uppercase
+      hover:bg-black hover:bg-opacity-5
+      focus:outline-none focus:ring-0
+      transition
+      duration-150
+      ease-in-out
+    "
       >
-
+        <router-link class="button" :to="{ name: 'Home' }">Главная </router-link>
+      </button>
+      <button
+          type="button"
+          class="
+      rounded-r
+      px-6
+      py-2
+      m-1
+      border-2 border-blue-600
+      text-blue-600
+      font-medium
+      text-xs
+      leading-tight
+      uppercase
+      hover:bg-black hover:bg-opacity-5
+      focus:outline-none focus:ring-0
+      transition
+      duration-150
+      ease-in-out
+    "
+      >
+        <router-link :to="{ name: 'About', params: { text: lead } }">О проекте</router-link>
+      </button>
       <!-- <router-link to="/easy">Легкий</router-link> |
       <router-link to="/middle">Средний</router-link> |
       <router-link to="/hard">Сложный</router-link> |
       <router-link to="/extrahard">Супер сложный</router-link> -->
-    </div>
+  </nav>
 
     <!-- Content -->
     <router-view></router-view>
