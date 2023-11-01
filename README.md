@@ -18,6 +18,16 @@ npm run serve
 npm run build
 ```
 
+## Запуск в Docker
+```
+docker build -t dockerize-begauss-vuejs-app .
+```
+```
+docker run -it -p 8080:8080 --rm --name dockerize-begauss-vuejs-app dockerize-begauss-vuejs-app
+```
+
+## О проекте
+
 Генератор арифметических примеров с разным уровнем сложности и интерактивными ответами.
 
 Одним из математиков с феноменальной скоростью устного счета был знаменитый Карл Фридрих Гаусс (1777-1855).
