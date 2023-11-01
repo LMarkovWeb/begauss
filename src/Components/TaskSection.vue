@@ -9,35 +9,43 @@
         {{ level.title }}
       </h2>
       <div class="col">
+
+        <!-- Умножение -->
+        <AppMultiplication
+          :arParams="level.AppMultiplication"
+        ></AppMultiplication>
+
         <!-- Сложение -->
         <AppSummation :arParams="level.AppSummation" />
         <AppSummation
           v-if="level.AppSummationPlus"
           :arParams="level.AppSummationPlus ? level.AppSummationPlus : {}"
         />
+
         <!-- Вычитание -->
         <AppSubtraction :arParams="level.AppSubtraction"></AppSubtraction>
-        <!-- Умножение -->
-        <AppMultiplication
-          :arParams="level.AppMultiplication"
-        ></AppMultiplication>
+
         <!-- Деление -->
         <AppDivision :arParams="level.AppDivision"></AppDivision>
+
         <!-- Процент от числа -->
         <AppPercentage
           v-if="level.AppPercentage"
           :arParams="level.AppPercentage ? level.AppPercentage : {}"
         />
+
         <!-- На сколько процентов больше -->
         <AppHowManyPercent
             v-if="level.AppHowManyPercent"
             :arParams="level.AppHowManyPercent ? level.AppHowManyPercent : {}"
         />
+
         <!-- Перевод из долларов в рубли -->
         <AppConversion
             v-if="level.AppConversion"
             :arParams="level.AppConversion ? level.AppConversion : {}"
         />
+        
       </div>
     </div>
   </section>
