@@ -3,9 +3,9 @@ import { createStore } from "vuex";
 export default createStore({
   state: {
     levelsConfig: [
-      // easy
+      // D
       {
-        title: "Легкий",
+        title: "D",
         level: "easy",
         AppMultiplication: {
           title: "Умножение (Х * Х)",
@@ -18,7 +18,7 @@ export default createStore({
         },
         AppSummation: {
           title: "Сложение (XX + XX)",
-          taskCount: 12, // кол-во примеров
+          taskCount: 10, // кол-во примеров
           operandsCount: 2, // кол-во операндов в примере
           range: [
             // кол-во объектов по кол-ву операндов
@@ -28,7 +28,7 @@ export default createStore({
         },
         AppSubtraction: {
           title: "Вычитание (XX - XX)",
-          taskCount: 12,
+          taskCount: 10,
           operandsCount: 2,
           range: [
             { from: 21, to: 69 },
@@ -45,9 +45,9 @@ export default createStore({
           ],
         },
       },
-      // middle
+      // D+
       {
-        title: "Средний",
+        title: "D+",
         level: "middle",
         AppMultiplication: {
           title: "Умножение (ХХ * Х)",
@@ -60,7 +60,7 @@ export default createStore({
         },
         AppSummation: {
           title: "Сложение (XX + XX)",
-          taskCount: 12,
+          taskCount: 10,
           operandsCount: 2,
           range: [
             { from: 41, to: 99 },
@@ -81,18 +81,18 @@ export default createStore({
           taskCount: 10,
           operandsCount: 2,
           range: [
-            { from: 80, to: 199 },
-            { from: 2, to: 9 },
+            { from: 70, to: 159 },
+            { from: 4, to: 9 },
           ],
         },
       },
-      // middle+
+      // C
       {
-        title: "Средний+",
+        title: "C",
         level: "middle+",
         AppMultiplication: {
           title: "Умножение (ХХ * Х)",
-          taskCount: 10,
+          taskCount: 7,
           operandsCount: 2,
           range: [
             { from: 61, to: 99 },
@@ -101,7 +101,7 @@ export default createStore({
         },
         AppSummation: {
           title: "Сложение (XXX + XX)",
-          taskCount: 10,
+          taskCount: 7,
           operandsCount: 2,
           range: [
             { from: 100, to: 599 },
@@ -110,7 +110,7 @@ export default createStore({
         },
         AppSubtraction: {
           title: "Вычитание (XXX - XX)",
-          taskCount: 12,
+          taskCount: 7,
           operandsCount: 2,
           range: [
             { from: 100, to: 399 },
@@ -118,31 +118,30 @@ export default createStore({
           ],
         },
         AppDivision: {
-          title: "Деление (XX(X) / X)",
-          taskCount: 10,
+          title: "Деление (XX / X)",
+          taskCount: 7,
           operandsCount: 2,
           range: [
-            { from: 80, to: 199 },
-            { from: 2, to: 9 },
+            { from: 199, to: 999 },
+            { from: 3, to: 9 },
           ],
         },
-        AppConversion: {
-          // конвертация $ -> P.
-          title: "Конвертация &#36; -> &#8381;",
-          taskCount: 10,
-          operandsCount: 2,
-          range: [
-            { from: 3, to: 100 },
-            { from: 1, to: 1 },
-          ],
-        },
+        // AppSquare: {
+        //   title: "Таблица квадратов до 20",
+        //   taskCount: 7,
+        //   operandsCount: 2,
+        //   range: [
+        //     { from: 2, to: 20 },
+        //     { from: 2, to: 2 },
+        //   ],
+        // },
       },
-      // hard
+      // C+
       {
-        title: "Сложный",
+        title: "C+",
         level: "hard",
         AppMultiplication: {
-          title: "Умножение (ХХ * Х)",
+          title: "Умножение (ХХ * ХX)",
           taskCount: 7,
           operandsCount: 2,
           range: [
@@ -169,12 +168,12 @@ export default createStore({
           ],
         },
         AppSubtraction: {
-          title: "Вычитание (XXX - XX)",
+          title: "Вычитание (XXX - XX(Х))",
           taskCount: 7,
           operandsCount: 2,
           range: [
             { from: 399, to: 999 },
-            { from: 39, to: 99 },
+            { from: 39, to: 399 },
           ],
         },
         AppDivision: {
@@ -182,8 +181,8 @@ export default createStore({
           taskCount: 7,
           operandsCount: 2,
           range: [
-            { from: 100, to: 999 },
-            { from: 2, to: 9 },
+            { from: 100, to: 499 },
+            { from: 2, to: 6 },
           ],
         },
         AppPercentage: {
@@ -205,22 +204,22 @@ export default createStore({
           ],
         },
       },
-      // hard+
+      // B
       {
-        title: "Сложный+",
+        title: "B",
         level: "hard",
         AppMultiplication: {
-          title: "Умножение (ХХ * Х)",
-          taskCount: 10,
+          title: "Умножение (ХХ * ХX)",
+          taskCount: 7,
           operandsCount: 2,
           range: [
-            { from: 11, to: 39 },
-            { from: 11, to: 39 },
+            { from: 51, to: 99 },
+            { from: 51, to: 99 },
           ],
         },
         AppSummation: {
           title: "Сложение (ХХХ + ХХХ + ХХХ)",
-          taskCount: 10,
+          taskCount: 7,
           operandsCount: 3,
           range: [
             { from: 101, to: 999 },
@@ -230,7 +229,7 @@ export default createStore({
         },
         AppSummationPlus: {
           title: "Сложение (ХХХХ + ХХХХ)",
-          taskCount: 10,
+          taskCount: 7,
           operandsCount: 2,
           range: [
             { from: 10001, to: 99999 },
@@ -239,7 +238,7 @@ export default createStore({
         },
         AppSubtraction: {
           title: "Вычитание (XXX - XXX)",
-          taskCount: 10,
+          taskCount: 7,
           operandsCount: 2,
           range: [
             { from: 700, to: 999 },
@@ -248,16 +247,16 @@ export default createStore({
         },
         AppDivision: {
           title: "Деление (XXX / X)",
-          taskCount: 10,
+          taskCount: 7,
           operandsCount: 2,
           range: [
-            { from: 100, to: 999 },
-            { from: 2, to: 9 },
+            { from: 501, to: 999 },
+            { from: 5, to: 9 },
           ],
         },
         AppPercentage: {
           title: "Процент (%) от числа",
-          taskCount: 10,
+          taskCount: 7,
           operandsCount: 2,
           range: [
             { from: 1, to: 99 },
@@ -266,17 +265,27 @@ export default createStore({
         },
         AppHowManyPercent: {
           title: "На сколько(%) больше",
-          taskCount: 10,
+          taskCount: 7,
           operandsCount: 2,
           range: [
             { from: 100, to: 150 },
             { from: 10, to: 120 },
           ],
         },
+        AppConversion: {
+          // конвертация $ -> P.
+          title: "Конвертация &#36; -> &#8381;",
+          taskCount: 7,
+          operandsCount: 2,
+          range: [
+            { from: 3, to: 100 },
+            { from: 1, to: 1 },
+          ],
+        },
       },
-      // extraHard
+      // B+
       {
-        title: "Супер сложный",
+        title: "B+",
         level: "extraHard",
         AppMultiplication: {
           title: "Умножение (ХХ(Х) * ХХ)",
@@ -317,6 +326,16 @@ export default createStore({
           ],
         },
       },
+      // A
+      // {
+      //   title: "A",
+      //   level: "extraHard",
+      // },
+      // A+
+      // {
+      //   title: "A+",
+      //   level: "extraHard",
+      // },
     ],
   },
   mutations: {},
